@@ -20,7 +20,14 @@ puts "Counted #{mainstream.size} mainstream rows."
 main_and_comp = comprehensive_only(mainstream)
 puts "Filtered #{main_and_comp.size} rows that are both mainstream and comprehensive./n"
 # Don't need to rank the entire table, but do so for simiplicity.
-top_ptac5 = rank_by_ptac5(main_and_comp)[-1]
+ptac5 = rank_by_ptac5(main_and_comp)
+top_ptac5 = ptac5[-1]
 puts "#{top_ptac5[:schname]} in or near #{top_ptac5[:town]} is the mainstream non-selective school with the highest percentage of pupils achieving 5+ A*-C or equivalents at GCSE"
-top_ttapscp = rank_by_ttapscp(main_and_comp)[-1]
-puts "#{top_ptac5[:schname]} in or near #{top_ptac5[:town]} is the mainstream non-selective school with the highest total average (capped) point score per pupil at GCSE"
+ttapscp = rank_by_ttapscp(main_and_comp)
+top_ttapscp = ttapscp[-1]
+puts "#{top_ttapscp[:schname]} in or near #{top_ttapscp[:town]} is the mainstream non-selective school with the highest total average (capped) point score per pupil at GCSE"
+
+puts "The top ten schools by GCSE grades C or above are:"
+(1..10).each { |i|
+  puts "#{i}.\t #{ptac5[-i][:schname]}, #{ptac5[-i][:town]}"
+}
