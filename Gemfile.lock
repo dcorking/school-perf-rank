@@ -1,0 +1,20 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    ZenTest (4.10.1)
+    columnize (0.8.9)
+    debugger (1.6.8)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.3.5)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.3.5)
+    minitest (5.4.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ZenTest
+  debugger
+  minitest
