@@ -1,14 +1,6 @@
 require 'minitest/autorun'
 require 'debugger'
-debugger
-require 'global_methods'
-
-# Warmup to see if minitest is working!
-class TestFixnum < Minitest::Test
-  def test_addition
-    assert_equal 5, 2+3
-  end
-end
+require File.expand_path('../global-methods', File.dirname(__FILE__))
 
 class TestRank < Minitest::Test
   def test_rank_by_ptac5

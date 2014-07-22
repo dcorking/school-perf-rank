@@ -11,7 +11,7 @@ require 'global-methods'
 require 'debugger'
 
 file_path = ARGV[0]
-
+debugger
 ## Main ##
 table = CSV.table file_path
 puts "Read #{table.size} rows."
