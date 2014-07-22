@@ -14,12 +14,7 @@ def comprehensive_only(table)
 end
 
 # PTAC5 is Percentage of pupils achieving 5+ A*-C or equivalents
-def rank_by_ptac5 table
-  # this does not need to return the entire table, but it does so for simplicity
-  table.sort_by{ |r| r[:ptac5].to_i }
-end
-
 # TTAPSCP is Total average (capped) point score per pupil
-def rank_by_ttapscp table
-  table.sort_by{ |r| r[:ttapscp].to_i }
+def rank_by(field, table)
+  table.sort_by{ |r| r[field].to_i }
 end

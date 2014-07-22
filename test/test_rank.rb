@@ -9,7 +9,7 @@ class TestRank < Minitest::Test
     raw_table = CSV::Table.new([header_row])
     raw_table << ['Hogwarts', '']
     raw_table << ['Saint Trinians', '14%']
-    ranked_table = rank_by_ptac5(raw_table)
+    ranked_table = rank_by(:ptac5, raw_table)
     assert_equal 'Grange Hill', ranked_table[-1][:schlname], 'top_school'
     assert_equal 'Saint Trinians', ranked_table[-2][:schlname], 'second best'
     assert_equal 'Hogwarts', ranked_table[-3][:schlname], 'third best'
@@ -21,7 +21,7 @@ class TestRank < Minitest::Test
     raw_table = CSV::Table.new([header_row])
     raw_table << ['Hogwarts', '225']
     raw_table << ['Saint Trinians', '721']
-    ranked_table = rank_by_ttapscp(raw_table)
+    ranked_table = rank_by(:ttapscp, raw_table)
     assert_equal 'Saint Trinians', ranked_table[-1][:schlname], 'top_school'
     assert_equal 'Hogwarts', ranked_table[-2][:schlname], 'second best'
     assert_equal 'Grange Hill', ranked_table[-3][:schlname], 'third best'
