@@ -32,10 +32,12 @@ Download other data for England from the [Department for Education](http://www.e
 ruby  -I. ./rank.rb data/800_ks4.csv
 Read 26 rows.
 Counted 20 mainstream rows.
-Filtered 14 rows that are both mainstream and comprehensive./n
+Filtered 14 rows that are both mainstream and comprehensive.
+
 Wellsway School in or near Bristol is the mainstream non-selective school with the highest percentage of pupils achieving 5+ A*-C or equivalents at GCSE
 Wellsway School in or near Bristol is the mainstream non-selective school with the highest total average (capped) point score per pupil at GCSE
-The top ten schools by GCSE grades C or above are:
+
+The top ten schools by five GCSE grades C or above are:
 1.       Wellsway School, Bristol
 2.       Writhlington School, Radstock
 3.       Somervale School Specialist Media Arts College, Radstock
@@ -46,6 +48,18 @@ The top ten schools by GCSE grades C or above are:
 8.       Ralph Allen School, Bath
 9.       Broadlands School, Bristol
 10.      Beechen Cliff School, Bath
+
+The top ten schools by GCSE point scores are:
+1.       Wellsway School, Bristol
+2.       Oldfield School, Bath
+3.       Saint Gregory's Catholic College, Bath
+4.       Beechen Cliff School, Bath
+5.       Norton Hill Academy, Radstock
+6.       Ralph Allen School, Bath
+7.       Writhlington School, Radstock
+8.       Hayesfield Girls School, Bath
+9.       Somervale School Specialist Media Arts College, Radstock
+10.      Chew Valley School, Bristol
 ```
 ## Details
 
