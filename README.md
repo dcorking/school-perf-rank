@@ -29,7 +29,7 @@ Download other data for England from the [Department for Education](http://www.e
 
 ## Sample output
 ```
-ruby  -I. ./rank.rb data/800_ks4.csv
+ruby  -I./ rank.rb data/800_ks4.csv
 Read 26 rows.
 Counted 20 mainstream rows.
 Filtered 14 rows that are both mainstream and comprehensive.
@@ -59,6 +59,18 @@ The top ten schools by GCSE point scores are:
 7.       Writhlington School, Radstock
 8.       Hayesfield Girls School, Bath
 9.       Somervale School Specialist Media Arts College, Radstock
+10.      Chew Valley School, Bristol
+
+The top ten schools by our first, crude GCSE scoring method:
+1.       Wellsway School, Bristol
+2.       Oldfield School, Bath
+3.       Norton Hill Academy, Radstock
+4.       Saint Gregory's Catholic College, Bath
+5.       Writhlington School, Radstock
+6.       Somervale School Specialist Media Arts College, Radstock
+7.       Hayesfield Girls School, Bath
+8.       Beechen Cliff School, Bath
+9.       Ralph Allen School, Bath
 10.      Chew Valley School, Bristol
 ```
 ## Details
