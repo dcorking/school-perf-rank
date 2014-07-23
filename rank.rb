@@ -8,7 +8,6 @@
 
 require 'csv'
 require 'global-methods'
-require 'debugger'
 
 file_path = ARGV[0]
 
@@ -49,7 +48,7 @@ main_and_comp = main_and_comp.collect.with_index do |row, i|
 
 # Two ideas that combine PTAC5 and TTAPSCP into a single score per school
 
-# Firstly idea is labelled gr1
+# First idea is labelled gr1
 # ( PTAC5 / 2 + (TTAPSCP - 300) / 2)  [ I picked 300 out of thin air ]
 
 # add a field for a crude average
