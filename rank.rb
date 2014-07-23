@@ -47,6 +47,11 @@ main_and_comp = main_and_comp.collect.with_index do |row, i|
     ttapscp: row[:ttapscp].to_i}
   end
 
+# Two ideas that combine PTAC5 and TTAPSCP into a single score per school
+
+# Firstly idea is labelled gr1
+# ( PTAC5 / 2 + (TTAPSCP - 300) / 2)  [ I picked 300 out of thin air ]
+
 # add a field for a crude average
 # gr1 = ( ptac5 + ttapscp  - 300 ) / 2
 main_and_comp.each do |school|
@@ -60,16 +65,30 @@ main_and_comp.slice(0,10).each_with_index { |school, i|
   puts "#{i+1}.\t #{school[:schname]}, #{school[:town]}"
 }
 
+# Second idea, gr2, is an average of the deviation (in s.d.s) of each
+# from the mean score
 
-# TODO calculate mean and standard deviations
+ptac5s = main_and_comp.collect {|sch| sch[:ptac5]}
+mean_ptac5 = mean(ptac5s)
+sd_ptac5 = standard_deviation(ptac5s)
 
-# TODO calculate gr2
-# Do you have an idea how or if PTAC5 and TTAPSCP could usefully be
-# weighted into a combined score? Something like this perhaps?
-# ( PTAC5 / 2 + (TTAPSCP - 300) / 2)  [ I picked 300 out of thin air - sorry]
-# Or an average of the deviation (in s.d.s) of each from the mean score?
+ttapscps = main_and_comp.collect {|sch| sch[:ttapscp]}
+mean_ttapscp = mean(ttapscps)
+sd_ttapscp = standard_deviation(ttapscps)
 
-# TODO sort by gr2
+# For each score, ptac5 and ttapscp
+# deviation = (score - mean) / standard deviation
+# gr2 = deviation_ptac5 + deviation_ttapscp
+# Add a new field gr2 to each school
+main_and_comp.each do |school|
+  deviation_ptac5 = ( school[:ptac5] - mean_ptac5 ) / sd_ptac5
+  deviation_ttapscp = ( school[:ttapscp] - mean_ttapscp ) / sd_ttapscp
+  school[:gr2] = deviation_ptac5 + deviation_ttapscp
+  school
+  end
 
-# require 'pry'
-# pry
+main_and_comp = main_and_comp.sort_by { |sch| sch[:gr2] }.reverse
+puts "\nThe top ten schools by our second, deviation-based method of combining GCSE data:"
+main_and_comp.slice(0,10).each_with_index { |school, i|
+  puts "#{i+1}.\t #{school[:schname]}, #{school[:town]}"
+}
